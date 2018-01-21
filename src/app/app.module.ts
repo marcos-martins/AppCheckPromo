@@ -6,10 +6,13 @@ import { MyApp } from './app.component';
 
 import{ PromotionService } from './../services/promotion.service';
 
+import { AddPage } from '../pages/add/add';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { AddPage } from '../pages/add/add';
+import { SignupPage } from '../pages/signup/signup';
+import { LoginPage } from '../pages/login/login';
+import { WelcomePage } from '../pages/welcome/welcome';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,12 +24,15 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 @NgModule({
   declarations: [
+    AddPage,
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
-    AddPage
+    WelcomePage,
+    LoginPage,
+    SignupPage,
+    TabsPage    
   ],
   imports: [
     BrowserModule,
@@ -36,12 +42,15 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    AddPage,
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
-    AddPage
+    WelcomePage,
+    LoginPage,
+    SignupPage,
+    TabsPage   
   ],
   providers: [
     StatusBar,
