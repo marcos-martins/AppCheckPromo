@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 
 import{ PromotionService } from './../services/promotion.service';
+import{ UserService } from './../services/user.service';
 
 import { AddPage } from '../pages/add/add';
 import { AboutPage } from '../pages/about/about';
@@ -20,7 +21,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
+import { IonicStorageModule } from '@ionic/storage';
+
+import { HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { AuthInterceptor } from '../util/AuthInterceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     BrowserModule,
     IonicImageViewerModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,11 +62,14 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     StatusBar,
     SplashScreen,
     PromotionService,
+    UserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileTransfer,    
     FileTransferObject,
     File,
-    Camera
+    Camera,
+    [ { provide: HTTP_INTERCEPTORS, useClass: 
+      AuthInterceptor, multi: true } ]
   ]
 })
 export class AppModule {}

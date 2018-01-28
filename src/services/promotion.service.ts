@@ -9,7 +9,7 @@ import {Promotion} from './../models/promotion.model';
 
 @Injectable()
 export class PromotionService {    
-  private getApiUrl : string = "http://localhost:3000/promotions";
+  private getApiUrl : string = "https://server-checkpromo.herokuapp.com/promotions/";
 
   constructor(private http: HttpClient) { } 
 

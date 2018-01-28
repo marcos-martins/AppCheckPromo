@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content padding>
+<p> {{ user?.photo }} </p>
 <div *ngIf="promotions | async as promotions">
   <ion-card *ngFor="let promotion of promotions">
      
